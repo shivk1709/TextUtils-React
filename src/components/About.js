@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // let myStyle = {
 //     color: "white",
@@ -6,40 +6,48 @@ import React, { useState } from 'react'
 //     border: "1px solid white"
 // }
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle, newStyle] = useState({
-        color: "black",
-        backgroundColor: "white",
-    })
+    // const [myStyle, newStyle] = useState({
+    //     color: "black",
+    //     backgroundColor: "white",
+    // })
 
-    const [darkModeButton, lightButton] = useState("Enable Dark Mode");
+    // const [darkModeButton, lightButton] = useState("Enable Dark Mode");
 
 
-    const darkMode = () => {
-        console.log("Invoking method");
-        if (myStyle.color === "black") {
-             newStyle({
-                color: "white",
-                backgroundColor: "black",
-                border: "1px solid white"
-            })
-            lightButton("Enable Light Mode");
-        }
-        else {
-             newStyle({
-                color: "black",
-                backgroundColor: "white"
-            })
-            lightButton("Enable Dark Mode");
+    // const darkMode = () => {
+    //     console.log("Invoking method");
+    //     if (myStyle.color === "black") {
+    //          newStyle({
+    //             color: "white",
+    //             backgroundColor: "black",
+    //             border: "1px solid white"
+    //         })
+    //         lightButton("Enable Light Mode");
+    //     }
+    //     else {
+    //          newStyle({
+    //             color: "black",
+    //             backgroundColor: "white"
+    //         })
+    //         lightButton("Enable Dark Mode");
 
-        }
+    //     }
+    // }
+
+    let myStyle = {
+        color: props.mode === "dark" ? "white" : "black",
+        backgroundColor: props.mode === "dark" ? "rgb(11, 11, 49)" : "white",
+        border: `1px solid ${props.mode === "dark" ? "white" : "black"}`
     }
 
     return (
         <>
             <div className="container">
-                <h1 style={myStyle}>About Page</h1>
+                <div className="heading" style={myStyle}>
+                    <h1 className='ml-4'>About Page</h1>
+                </div>
                 <div className="accordion accordion-flush" id="accordionFlushExample">
                     <div className="accordion-item" style={myStyle}>
                         <h2 className="accordion-header">
@@ -72,7 +80,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <button type="button" onClick={darkMode} className="btn btn-primary my-2" >{darkModeButton}</button>
+                {/* <button type="button" onClick={darkMode} className="btn btn-primary my-2" >{darkModeButton}</button> */}
             </div>
         </>
 

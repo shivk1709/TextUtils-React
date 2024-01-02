@@ -41,7 +41,7 @@ function App() {
         <Navbar title='TextUtils' home="Home" about="About" mode={mode} toggle={togglebutton} />
         <Alerts alert={alert} />
         <Routes>
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About mode = {mode}/>} />
           <Route exact path="/" element={<TextForm name="Enter the text below" showAlert={showAlert} mode={mode} uName="Convert Into UpperCase" lName="Convert Into LowerCase" tName="Convert to Title" iName="Convert To Inverse" />} />
         </Routes>
       </>

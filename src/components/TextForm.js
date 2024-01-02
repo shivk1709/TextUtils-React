@@ -75,7 +75,7 @@ export default function TextForm(props) {
         </div>
         <div className="container mt-3" style={{color: props.mode === "light"?"black":"white"}}>
             <h5>Analysis of Data</h5>
-            <p>Length of Above paragraph is {text.length} and {text.split(" ").length} words </p>
+            <p>Length of Above paragraph is {text.length} and {text.split(" ").filter(element => element.length!==0).length} words </p>
             <h5>Preview</h5>
             <p>{text}</p>
         </div>
